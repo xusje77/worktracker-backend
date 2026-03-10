@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
     res.json({ name: 'Work Tracker API', version: '1.0.0' });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log('─────────────────────────────────────────');
     console.log(` Work Tracker API corriendo en puerto ${PORT}`);
     console.log(` http://localhost:${PORT}/health`);
