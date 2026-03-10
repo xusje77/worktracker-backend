@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 
 const app = express();
+app.set('trust proxy', 1);
 const PORT = process.env.PORT || 3000;
 const API = process.env.API_PREFIX || '/api/v1';
 
@@ -32,7 +33,6 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
-// Rutas
 const authRoutes    = require('./routes/auth');
 const workRoutes    = require('./routes/work');
 const timeOffRoutes = require('./routes/timeoff');
